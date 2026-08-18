@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenAI, ThinkingLevel } from '@google/genai';
 import { starRatingToNumber, type GoogleReview } from './googleClient.js';
 
 let client: GoogleGenAI | undefined;
@@ -51,7 +51,7 @@ function buildSystemPrompt(profile: BusinessProfile): string {
 export async function generateReply(review: GoogleReview, profile: BusinessProfile): Promise<string> {
   const ai = getClient();
   const rating = starRatingToNumber(review.starRating);
-  const model = process.env.GEMINI_MODEL ?? 'gemini-2.5-flash';
+  const model = process.env.GEMINI_MODEL ?? 'gemini-3.6-flash';
 
   const userPrompt = [
     `Avis client (${rating}/5 étoiles) de ${review.reviewer?.displayName ?? 'un client'} :`,
@@ -63,7 +63,8 @@ export async function generateReply(review: GoogleReview, profile: BusinessProfi
     contents: userPrompt,
     config: {
       systemInstruction: buildSystemPrompt(profile),
-      maxOutputTokens: 400,
+      maxOutputTokens: 500,
+      thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
     },
   });
 
