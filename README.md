@@ -2,7 +2,7 @@
 
 Agent IA qui aide une entreprise à répondre à ses avis Google (fiche **Google Business Profile**) :
 
-1. **`fetch`** — récupère les nouveaux avis via l'API Google Business Profile et génère un brouillon de réponse avec **Claude** (Anthropic) pour chacun.
+1. **`fetch`** — récupère les nouveaux avis via l'API Google Business Profile et génère un brouillon de réponse avec **Gemini** (Google AI Studio) pour chacun.
 2. **`review`** — te fait relire chaque brouillon dans le terminal : tu peux l'approuver tel quel, le modifier, ou le rejeter.
 3. **`publish`** — publie sur Google uniquement les réponses que tu as approuvées.
 
@@ -12,7 +12,7 @@ La publication n'est **jamais automatique sans validation humaine** : c'est un c
 
 - Node.js 18.17 ou plus récent
 - Une fiche **Google Business Profile** dont tu es propriétaire/gestionnaire
-- Une clé API **Anthropic** (Claude) — https://console.anthropic.com
+- Une clé API **Gemini** (gratuite) — https://aistudio.google.com/apikey
 - Un projet **Google Cloud** avec les API suivantes activées :
   - **My Business API** (`mybusiness.googleapis.com`) — gestion des avis. ⚠️ Cette API nécessite historiquement une **demande d'accès auprès de Google** (formulaire officiel) au-delà d'un usage de test ; sans validation, les appels peuvent être limités ou refusés en production.
   - **My Business Account Management API** (`mybusinessaccountmanagement.googleapis.com`)
@@ -54,13 +54,13 @@ npm run accounts
 
 Liste tes comptes Business Profile et les établissements associés, avec les valeurs `GOOGLE_ACCOUNT_ID` / `GOOGLE_LOCATION_ID` à copier dans `.env`.
 
-### 4. Configurer Claude et le profil de l'entreprise
+### 4. Configurer Gemini et le profil de l'entreprise
 
-Dans `.env` :
+Récupère une clé gratuite sur https://aistudio.google.com/apikey (aucune carte bancaire requise pour le tier gratuit), puis dans `.env` :
 
 ```
-ANTHROPIC_API_KEY=sk-ant-...
-ANTHROPIC_MODEL=claude-sonnet-5
+GEMINI_API_KEY=...
+GEMINI_MODEL=gemini-2.5-flash
 
 BUSINESS_NAME="Nom de mon entreprise"
 BUSINESS_TONE="professionnel, chaleureux et concis"
@@ -95,7 +95,7 @@ Tu n'as ensuite plus qu'à lancer `npm run review` puis `npm run publish` quand 
 ```
 src/
   googleClient.ts     # OAuth2 + appels à l'API Business Profile (lister/répondre aux avis)
-  claudeClient.ts      # génération des brouillons de réponse avec Claude
+  geminiClient.ts      # génération des brouillons de réponse avec Gemini
   store.ts              # stockage local des avis/brouillons (data/reviews.json)
   commands/
     getToken.ts        # flux OAuth pour obtenir le refresh token

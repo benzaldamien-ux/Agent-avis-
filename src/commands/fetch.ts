@@ -1,5 +1,5 @@
 import { listReviews, starRatingToNumber } from '../googleClient.js';
-import { generateReply, loadBusinessProfile } from '../claudeClient.js';
+import { generateReply, loadBusinessProfile } from '../geminiClient.js';
 import { loadReviews, saveReviews, type StoredReview } from '../store.js';
 
 export async function fetchCommand(): Promise<void> {

@@ -1,15 +1,15 @@
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenAI } from '@google/genai';
 import { starRatingToNumber, type GoogleReview } from './googleClient.js';
 
-let client: Anthropic | undefined;
+let client: GoogleGenAI | undefined;
 
-function getClient(): Anthropic {
+function getClient(): GoogleGenAI {
   if (!client) {
-    const apiKey = process.env.ANTHROPIC_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-      throw new Error("Variable d'environnement manquante: ANTHROPIC_API_KEY");
+      throw new Error("Variable d'environnement manquante: GEMINI_API_KEY");
     }
-    client = new Anthropic({ apiKey });
+    client = new GoogleGenAI({ apiKey });
   }
   return client;
 }
@@ -49,25 +49,27 @@ function buildSystemPrompt(profile: BusinessProfile): string {
 }
 
 export async function generateReply(review: GoogleReview, profile: BusinessProfile): Promise<string> {
-  const anthropic = getClient();
+  const ai = getClient();
   const rating = starRatingToNumber(review.starRating);
-  const model = process.env.ANTHROPIC_MODEL ?? 'claude-sonnet-5';
+  const model = process.env.GEMINI_MODEL ?? 'gemini-2.5-flash';
 
   const userPrompt = [
     `Avis client (${rating}/5 étoiles) de ${review.reviewer?.displayName ?? 'un client'} :`,
     review.comment?.trim() ? `"${review.comment.trim()}"` : '(aucun commentaire écrit, seulement une note)',
   ].join('\n');
 
-  const message = await anthropic.messages.create({
+  const response = await ai.models.generateContent({
     model,
-    max_tokens: 400,
-    system: buildSystemPrompt(profile),
-    messages: [{ role: 'user', content: userPrompt }],
+    contents: userPrompt,
+    config: {
+      systemInstruction: buildSystemPrompt(profile),
+      maxOutputTokens: 400,
+    },
   });
 
-  const textBlock = message.content.find((block) => block.type === 'text');
-  if (!textBlock || textBlock.type !== 'text') {
-    throw new Error('Réponse inattendue de Claude : aucun contenu texte.');
+  const text = response.text;
+  if (!text) {
+    throw new Error('Réponse inattendue de Gemini : aucun contenu texte.');
   }
-  return textBlock.text.trim();
+  return text.trim();
 }
