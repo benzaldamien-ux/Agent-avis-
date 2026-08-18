@@ -1,0 +1,31 @@
+{
+  "name": "agent-avis-google",
+  "version": "1.0.0",
+  "description": "Agent IA qui génère des brouillons de réponse aux avis Google Business Profile (avec Claude) et les publie après validation humaine.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "accounts": "tsx src/index.ts accounts",
+    "get-token": "tsx src/index.ts get-token",
+    "fetch": "tsx src/index.ts fetch",
+    "review": "tsx src/index.ts review",
+    "publish": "tsx src/index.ts publish",
+    "sync": "tsx src/index.ts sync",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@inquirer/prompts": "^7.2.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}
