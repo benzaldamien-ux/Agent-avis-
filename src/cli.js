@@ -25,7 +25,7 @@ export function displayReview(review, rating, proposedReply, warning) {
 export async function askValidation() {
   const { action } = await inquirer.prompt([
     {
-      type: 'list',
+      type: 'select',
       name: 'action',
       message: 'Que faire pour cet avis ?',
       choices: [

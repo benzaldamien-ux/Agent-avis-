@@ -48,7 +48,7 @@ async function discoverAndAddLocation(auth, config) {
 
   const { chosenIndex } = await inquirer.prompt([
     {
-      type: 'list',
+      type: 'select',
       name: 'chosenIndex',
       message: 'Quelle fiche établissement voulez-vous ajouter ?',
       choices: candidates.map((candidate, index) => ({
@@ -93,7 +93,7 @@ export async function chooseLocation(auth) {
 
   const { chosenKey } = await inquirer.prompt([
     {
-      type: 'list',
+      type: 'select',
       name: 'chosenKey',
       message: 'Quel établissement voulez-vous traiter ?',
       choices: [
