@@ -114,11 +114,14 @@ vos préférences évoluent) :
 
 - Réponse toujours dans la langue de l'avis.
 - Ton chaleureux, jamais corporate, 2 à 4 phrases maximum.
-- Signature "l'équipe Asteburua" (adaptée à la langue).
+- Signature "l'équipe Asteburua" (adaptée à la langue), sans répéter ce nom
+  dans le corps du texte (on préfère "chez nous", "notre équipe"...).
 - Reprise d'un détail concret de l'avis (plat, ambiance, serveur...).
 - Ton adapté à la note : enthousiaste sur 5 étoiles, nuancé sur 3-4 étoiles,
   très court et sans justification sur 1-2 étoiles (jamais de contradiction
   publique du client).
+- Un ou deux emojis discrets sur les avis 3 à 5 étoiles (😊 🙏 🍽️...), aucun
+  sur les avis 1-2 étoiles.
 - Un seul mot-clé SEO maximum par réponse (Ossès, Pays Basque, produits
   locaux, producteurs de la région, tapas, pizzeria, burgers, soirées à
   thème), jamais forcé, jamais utilisé sur un avis 1-2 étoiles. L'outil garde

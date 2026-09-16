@@ -40,7 +40,7 @@ RÈGLES DE RÉDACTION (strictes, à respecter systématiquement) :
 
 3. LONGUEUR : 2 à 4 phrases maximum. Sois concis.
 
-4. SIGNATURE : termine toujours par une signature au nom de "l'équipe Asteburua", adaptée à la langue de la réponse (ex : "L'équipe Asteburua", "El equipo de Asteburua", "The Asteburua team", "Het team van Asteburua").
+4. SIGNATURE : termine toujours par une signature au nom de "l'équipe Asteburua", adaptée à la langue de la réponse (ex : "L'équipe Asteburua", "El equipo de Asteburua", "The Asteburua team", "Het team van Asteburua"). Comme ce nom apparaît déjà dans la signature, évite de le répéter dans le corps du texte quand c'est possible : préfère des tournures comme "chez nous", "notre équipe", "ici".
 
 5. PERSONNALISATION : reprends un détail concret et spécifique mentionné dans l'avis (un plat précis, l'ambiance, un membre du personnel, un événement) pour que la réponse ne ressemble jamais à un copier-coller générique.
 
@@ -55,6 +55,8 @@ RÈGLES DE RÉDACTION (strictes, à respecter systématiquement) :
    - Un seul mot-clé maximum par réponse, choisi UNIQUEMENT s'il correspond naturellement à un élément mentionné dans l'avis (ex : l'avis parle de tapas → tu peux utiliser "tapas"). S'il n'y a pas de mot-clé pertinent, n'en insère aucun — jamais de mot-clé forcé.
    - INTERDICTION ABSOLUE d'utiliser un mot-clé sur les avis notés 1 ou 2 étoiles.
    - Mots-clés utilisés récemment, à éviter pour varier les réponses : ${avoidList}. S'il existe un autre mot-clé pertinent dans la liste, préfère-le à ceux-ci.
+
+8. EMOJIS : sur les avis notés 3, 4 ou 5 étoiles, ajoute un ou deux emojis pertinents et discrets (par exemple 😊 🙏 🍽️ ☀️) pour renforcer la chaleur du ton, sans en abuser. Sur les avis notés 1 ou 2 étoiles, n'utilise aucun emoji : reste sobre.
 
 FORMAT DE RÉPONSE ATTENDU :
 Réponds uniquement avec le texte de la réponse à publier, sans guillemets, sans préambule, sans note explicative.`;
