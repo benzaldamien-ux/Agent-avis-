@@ -1,0 +1,18 @@
+{
+  "name": "asteburua-avis",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Outil local d'aide à la réponse aux avis Google du restaurant Asteburua, avec validation humaine obligatoire avant publication.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "dotenv": "^17.4.2",
+    "googleapis": "^181.0.0",
+    "inquirer": "^14.2.2",
+    "open": "^11.0.4"
+  }
+}

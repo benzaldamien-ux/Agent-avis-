@@ -1,0 +1,13 @@
+# Dépendances installées
+node_modules/
+
+# Secrets : ne doivent jamais partir sur GitHub
+.env
+credentials.json
+
+# Données locales générées par l'outil (token OAuth, config, historique)
+data/
+
+# Divers
+*.log
+.DS_Store
